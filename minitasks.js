@@ -30,7 +30,7 @@ function User (firstName, lastName, email, age, isLoggedIn) {
       console.log('Вы вышли из аккаунта');
     },
   
-    logout: function () {
+    login: function () {
       if ( isLoggedIn = true)
       console.log('Вы вошли в аккаунт');
     }
@@ -42,4 +42,4 @@ function User (firstName, lastName, email, age, isLoggedIn) {
   const IvanIvanov = new User('Ivan', 'Ivanov', 'sdsd@sdsd.sd', 27, true);
   const PetrPetrov = new User('Petr', 'Petrov', 'sdsd@ww.we', 35, false)
   
-  console.log(PetrPetrov.logout());
+  console.log(PetrPetrov);
