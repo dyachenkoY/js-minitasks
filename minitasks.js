@@ -26,20 +26,19 @@ function User (firstName, lastName, email, age, isLoggedIn) {
     },
   
     logout: function () {
-      if (isLoggedIn = false)
+      this.isLoggedIn = false
       console.log('Вы вышли из аккаунта');
     },
   
     login: function () {
-      if ( isLoggedIn = true)
+      this.isLoggedIn = true
       console.log('Вы вошли в аккаунт');
     }
   }; 
-  
-  
+    
   User.prototype = userPrototype;
   
   const IvanIvanov = new User('Ivan', 'Ivanov', 'sdsd@sdsd.sd', 27, true);
   const PetrPetrov = new User('Petr', 'Petrov', 'sdsd@ww.we', 35, false)
   
-  console.log(PetrPetrov);
+  console.log(PetrPetrov.login());
