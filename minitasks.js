@@ -12,17 +12,16 @@ getFullName - метод, который вернет строчку, содер
 logout - метод, который имитирует логаут пользователя, меняя переменную isLoggedIn
 login - метод, который имитирует логин пользователя, меняя переменную isLoggedIn */
 
-function User (firstName, lastName, email, age, isLoggedIn) {
+function User (firstName, lastName, email, age) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
     this.age = age;
-    this.isLoggedIn = isLoggedIn;
   }
   
   const userPrototype = {
     getFullName: function () {
-      return (`${this.firstName} ${this.lastName}`);
+      return `${this.firstName} ${this.lastName}`;
     },
   
     logout: function () {
@@ -38,7 +37,7 @@ function User (firstName, lastName, email, age, isLoggedIn) {
     
   User.prototype = userPrototype;
   
-  const IvanIvanov = new User('Ivan', 'Ivanov', 'sdsd@sdsd.sd', 27, true);
-  const PetrPetrov = new User('Petr', 'Petrov', 'sdsd@ww.we', 35, false)
+  const IvanIvanov = new User('Ivan', 'Ivanov', 'sdsd@sdsd.sd', 27);
+  const PetrPetrov = new User('Petr', 'Petrov', 'sdsd@ww.we', 35)
   
   console.log(PetrPetrov.login());
