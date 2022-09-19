@@ -117,6 +117,6 @@ console.log(advancedCalk('*', 5, 5, 5, 5, 5));
 /* Имея массив чисел, найдите в нем самое большое. Не используйте циклы или методы перебора массива.*/
 
 const someNumbers = [1, 34, 37, 76, 4, 26, 79, 123, 222, 333, 210, 432, 89, 190, 433]
-let getMaxNumber = Math.max.apply(null, someNumbers);
+let getMaxNumber = Math.max(...someNumbers);
 console.log(getMaxNumber);
 
