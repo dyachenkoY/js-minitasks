@@ -70,3 +70,53 @@ function toLongestWord(str) {
 }
 
 console.log(toLongestWord('Гиппопотомомонстросесквиппедалиофобия - это боязнь длинных слов, которое состоит из 37 букв'));
+
+/* Создайте функцию, которая принимает неограниченное количество входящих данных, и возвращает количество строк, переданных ей в этом массиве. Решить с использованием стрелочных функций. */
+
+const arrGeneral = [3, 5, 2, 8, 5, 2, 8, 'строка1', 'строка2', 3, 0, 324, 3, 'строка3', 'строка4', 'строка5', 'строка6', 55, 3, 454, 'строка7','строка8']
+
+const arrStrings = arrGeneral.filter(strings => strings = typeof strings === 'string');
+
+console.log(arrStrings.length);
+
+
+/* Создайте функцию продвинутого калькулятора. Он принимает знак, а  затем неограниченное количество чисел, над которыми проведет указанную операцию. */
+
+const sumOfNumbers = (...numbers) => numbers.reduce((sum, curentNum) => sum + curentNum);
+const subOfNumbers = (...numbers) => numbers.reduce((sub, curentNum) => sub - curentNum);
+const multiplicationOfNumbers = (...numbers) => numbers.reduce((multiplication, curentNum) => multiplication * curentNum);
+const divOfNumbers = (...numbers) => numbers.reduce((div, curentNum) => div / curentNum);
+
+const advancedCalk = function (sign, ...numbers) {
+  let result;
+  switch (sign) {
+    case '+': {
+      result = sumOfNumbers(...numbers);
+      return result
+    }
+    case '-': {
+      result = subOfNumbers(...numbers);
+      return result
+    }
+    case '*': {
+      result = multiplicationOfNumbers(...numbers);
+      return result
+    }
+    case '/': {
+      result = divOfNumbers(...numbers);
+      return result
+    }
+    default:
+      result = null;
+  }
+  return result;
+}
+
+console.log(advancedCalk('*', 5, 5, 5, 5, 5));
+
+/* Имея массив чисел, найдите в нем самое большое. Не используйте циклы или методы перебора массива.*/
+
+const someNumbers = [1, 34, 37, 76, 4, 26, 79, 123, 222, 333, 210, 432, 89, 190, 433]
+let getMaxNumber = Math.max.apply(null, someNumbers);
+console.log(getMaxNumber);
+
