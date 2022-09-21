@@ -125,11 +125,9 @@ console.log(getMaxNumber);
 // 5! = 1 * 2 * 3 * 4 * 5 = 120 */
 
 function toFactorial(number) {
-  if (number === 1) {
-    return 1;
-  } else if (number === 0) {
+  if (number === 0) {
     return 1;
   }
   return number * toFactorial(number - 1);
 }
-console.log(toFactorial(10));
+console.log(toFactorial(1));
