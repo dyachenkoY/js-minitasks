@@ -125,9 +125,12 @@ console.log(getMaxNumber);
 // 5! = 1 * 2 * 3 * 4 * 5 = 120 */
 
 function toFactorial(number) {
+  if (isNaN(number) || number < 0) {
+    return NaN;
+  }
   if (number === 0) {
     return 1;
   }
   return number * toFactorial(number - 1);
 }
-console.log(toFactorial(1));
+console.log(toFactorial(5));
