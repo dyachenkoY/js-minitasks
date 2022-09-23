@@ -134,3 +134,85 @@ function toFactorial(number) {
   return number * toFactorial(number - 1);
 }
 console.log(toFactorial(5));
+
+
+/* Реализовать класс RangeValidator. Обьекты, созданные им должны обладать следующими свойcтвами:
+from(число)
+to(число)
+
+Реализовать геттеры и сеттеры для обоих свойств.
+Реализовать getter range, который будет возвращать массив, состоящий из границ диапазона from и to.
+Реализовать метод validate, который будет принимать число и проверить входит ли число в указанный диапазон. Метод возвращает это же число, если оно входит в диапазон. И кинет ошибку, если не входит.
+
+Bonus tasks:
+Создать проверки которые убедятся, что число во from меньше числа to и наоборот.
+Создать проверки, которые помогут избежать попадание неправильных типов данных в from и to. */
+
+
+class RangeValidator {
+  #from;
+  #to;
+  #range = [];
+
+  constructor (from, to) {
+    this.from = from;
+    this.to = to;
+  }
+
+  get from() {
+    return this.#from;
+  }
+
+  get to() {
+    return this.#to;
+  }
+
+  set from(value1) {
+    if (typeof value1 !== 'number' || isNaN(value1)) {
+      throw new TypeError (`Parametr 'from' must be number`)
+    }
+    if (value1 >= this.#to) {
+      throw new RangeError (`Parametr 'from' must be lower than parametr 'to'`)
+    }
+
+    this.#from = value1;
+  }
+
+
+  set to(value2) {
+    if (typeof value2 !== 'number' || isNaN(value2)) {
+      throw new TypeError (`Parametr 'to' must be number`)
+    }
+    if (value2 <= this.#from) {
+      throw new RangeError (`Parametr 'to' must be greater than parametr 'from'`)
+    }
+
+    this.#to = value2;
+  }
+
+  get range() {
+    /* this.#range = [];  Не понятно где лучше объявить пустой массив. Здесь, либо перед конструктором?*/  
+    
+    for (; this.#from <= this.#to; this.#from++) {
+      this.#range.push(this.#from)
+    }
+    return this.#range;
+  }
+
+  validate(num) {
+    if (num < this.#from) {
+      throw new RangeError('The number is less than the lower limit')
+    }
+    if (num > this.#to) {
+      throw new RangeError('The number is greater than the upper limit')
+    }
+    return num;
+  }
+
+}
+
+const range1 = new RangeValidator(10, 20);
+console.log(range1);
+
+
+
