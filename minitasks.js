@@ -200,6 +200,9 @@ class RangeValidator {
   }
 
   validate(num) {
+    if (typeof num !== 'number' || isNaN(num)) {
+      throw new TypeError (`Parametr 'to' must be number`)
+    }
     if (num < this.#from) {
       throw new RangeError('The number is less than the lower limit')
     }
